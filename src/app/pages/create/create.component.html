@@ -1,0 +1,30 @@
+<div>
+    <h2>product-create</h2>
+    <app-header></app-header>
+</div>
+<form [formGroup]="form" (ngSubmit)="onHandleSubmit()">
+    <div class="mb-3 mt-3">
+        <label for="text" class="form-label">Name</label>
+        <input type="email" class="form-control" id="email" formControlName="name">
+        <div class="errors">
+            <div *ngIf="form.get('name')?.hasError('required') && submitted">Truong bat buoc</div>
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="text" class="form-label">Pirce</label>
+        <input type="email" class="form-control" id="email" formControlName="price">
+        <div class="errors">
+            <div *ngIf="form.get('price')?.hasError('required') && submitted">Gia bat buoc</div>
+            <div *ngIf="form.get('price')?.hasError('min') && submitted">Gia lon</div>
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="text" class="form-label">Desc</label>
+        <input type="email" class="form-control" id="email" formControlName="desc">
+        <div class="errors">
+            <div *ngIf="form.get('desc')?.hasError('required') && submitted">Price bat buoc</div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
